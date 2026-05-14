@@ -21,12 +21,14 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int
 
     ALLOWED_ORIGINS: List[str]
+ 
+    API_PREFIX: str = "/api/v1"
 
     RATE_LIMIT_PER_MINUTE: int
     LOGIN_RATE_LIMIT_PER_MINUTE: int
 
     model_config = SettingsConfigDict(
-        env_file=str(ENV_FILE) if ENV_FILE.exists() else None, 
+        env_file=str(ENV_FILE) if ENV_FILE.exists() else None,
         env_file_encoding="utf-8",
         case_sensitive=True,
         extra="ignore",
